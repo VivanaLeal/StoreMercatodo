@@ -12,15 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/admin','AdmUserData@index');
+
 
 Route::get('/', function () {
 
     $user=Auth::user();
-    if ($user->esAdmin ()){
+    if ($user && $user->esAdmin()){
         echo "Eres usuario Administrador";
+        return view(admin);
+
+
 
     }else{
-        echo "Eres Usuario Invitado";
+        echo "Eres Usuario Estandar";
     }
 
     return view('welcome');
@@ -35,3 +40,4 @@ Auth::routes(['verify'=> true]);
  Route::get('/demo', function () {
     return view('demo');
  });
+
