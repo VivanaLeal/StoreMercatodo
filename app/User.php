@@ -36,4 +36,20 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+//agrego funciones role et admin
+    public function role (){
+
+        return $this->belongsTo ('App\Role');
+
+    }
+
+    
+    public function EsAdmin (){
+
+        if($this->role->nombre_rol=='Administrador'){
+            return true;
+        }
+        return false;
+
+    }
 }

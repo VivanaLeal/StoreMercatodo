@@ -14,13 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-//agrego array a la ruta
-Auth::routes(['verify'=> true]);
-//agrego middleware para protegerla, de tal manera que los usuarios solo accedan despues de verificar email
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
-Route::get('/demo', function () {
-    return view('demo');
+    $user=Auth::user();
+    if ($user->esAdmin ()){
+        echo "Eres usuario Administrador";
+
+    }else{
+        echo "Eres Usuario Invitado";
+    }
+
+    return view('welcome');
+
 });
+
+// //agrego array a la ruta
+Auth::routes(['verify'=> true]);
+ //agrego middleware para protegerla, de tal manera que los usuarios solo accedan despues de verificar email
+ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+ Route::get('/demo', function () {
+    return view('demo');
+ });
