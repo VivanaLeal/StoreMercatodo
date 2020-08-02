@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdmUserData;
+use App\User;
+use App\Role;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,23 +16,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin','AdmUserData@index');
+
 
 
 Route::get('/', function () {
 
+   
     $user=Auth::user();
     if ($user && $user->esAdmin()){
+       
+       
+        
         echo "Eres usuario Administrador";
-        return view(admin);
-
-
-
+        // return view('admin',['AdmUserData@index']);
     }else{
         echo "Eres Usuario Estandar";
     }
 
-    return view('welcome');
+     return view('welcome');
 
 });
 
@@ -40,4 +45,14 @@ Auth::routes(['verify'=> true]);
  Route::get('/demo', function () {
     return view('demo');
  });
+
+Route::get('/create','UserDbController@create');
+
+Route::get('/admin','UserDbController@index');
+
+
+
+
+
+
 

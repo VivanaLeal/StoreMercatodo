@@ -44,9 +44,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     
-    public function EsAdmin (){
+    public function esAdmin()
+    {
+        if (optional($this->role)->nombre_rol == 'Administrador') {
 
-        if($this->role->nombre_rol=='Administrador'){
             return true;
         }
         return false;

@@ -29,10 +29,11 @@
     
 </head>
 <body>
-    @include('layouts.admin_partials.admin_header')
-    @include('layouts.admin_partials.barra')
-    @yield('content')
-    @include('layouts.admin_partials.footer_adm')
+    
+     @include('layouts.admin_partials.admin_header')
+      @include('layouts.admin_partials.barra')
+       @yield('content')
+     @include('layouts.admin_partials.footer_adm')
     
     <!-- EMPIEZA LA SECCION DE CODIGO SCRIPT JS --->
          <!-- jQuery -->
