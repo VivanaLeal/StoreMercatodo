@@ -11,7 +11,7 @@
                 <img class="card-img" src="img/login.jpg" alt="">
               </div>
               <div class="card-body">
-                <h4 class="card-product__title"><a href={{layouts\categirias\tecnologia}}>TECNOLOGÍA</a></h4>
+                <h4 class="card-product__title"><a>TECNOLOGÍA</a></h4>
               </div>
             </div>
           </div>
